@@ -192,7 +192,7 @@ Map<String, dynamic> _$BooleanOperationToJson(BooleanOperation instance) =>
       'operation': _$OperationEnumMap[instance.operation],
     };
 
-K _$enumDecode<K, V>(
+K? _$enumDecode<K, V>(
   Map<K, V> enumValues,
   Object? source, {
   K? unknownValue,
@@ -202,6 +202,7 @@ K _$enumDecode<K, V>(
       'A value must be provided. Supported values: '
       '${enumValues.values.join(', ')}',
     );
+    return null;
   }
 
   return enumValues.entries.singleWhere(

@@ -180,7 +180,7 @@ Map<String, dynamic> _$EllipseToJson(Ellipse instance) => <String, dynamic>{
           instance.styles?.map((k, e) => MapEntry(_$StyleTypeKeyEnumMap[k], e)),
     };
 
-K _$enumDecode<K, V>(
+K? _$enumDecode<K, V>(
   Map<K, V> enumValues,
   Object? source, {
   K? unknownValue,
@@ -190,6 +190,7 @@ K _$enumDecode<K, V>(
       'A value must be provided. Supported values: '
       '${enumValues.values.join(', ')}',
     );
+    return null;
   }
 
   return enumValues.entries.singleWhere(

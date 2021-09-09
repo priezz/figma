@@ -206,7 +206,7 @@ Map<String, dynamic> _$TextToJson(Text instance) => <String, dynamic>{
           instance.styleOverrideTable?.map((k, e) => MapEntry(k.toString(), e)),
     };
 
-K _$enumDecode<K, V>(
+K? _$enumDecode<K, V>(
   Map<K, V> enumValues,
   Object? source, {
   K? unknownValue,
@@ -216,6 +216,7 @@ K _$enumDecode<K, V>(
       'A value must be provided. Supported values: '
       '${enumValues.values.join(', ')}',
     );
+    return null;
   }
 
   return enumValues.entries.singleWhere(

@@ -190,7 +190,7 @@ Map<String, dynamic> _$RectangleToJson(Rectangle instance) => <String, dynamic>{
       'rectangleCornerRadii': instance.rectangleCornerRadii,
     };
 
-K _$enumDecode<K, V>(
+K? _$enumDecode<K, V>(
   Map<K, V> enumValues,
   Object? source, {
   K? unknownValue,
@@ -200,6 +200,7 @@ K _$enumDecode<K, V>(
       'A value must be provided. Supported values: '
       '${enumValues.values.join(', ')}',
     );
+    return null;
   }
 
   return enumValues.entries.singleWhere(

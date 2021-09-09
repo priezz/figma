@@ -203,7 +203,7 @@ Map<String, dynamic> _$GroupToJson(Group instance) => <String, dynamic>{
       'isMaskOutline': instance.isMaskOutline,
     };
 
-K _$enumDecode<K, V>(
+K? _$enumDecode<K, V>(
   Map<K, V> enumValues,
   Object? source, {
   K? unknownValue,
@@ -213,6 +213,7 @@ K _$enumDecode<K, V>(
       'A value must be provided. Supported values: '
       '${enumValues.values.join(', ')}',
     );
+    return null;
   }
 
   return enumValues.entries.singleWhere(
