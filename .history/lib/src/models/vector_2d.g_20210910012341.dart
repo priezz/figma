@@ -24,8 +24,8 @@ extension Vector2DCopyWith on Vector2D {
 
 Vector2D _$Vector2DFromJson(Map<String, dynamic> json) {
   return Vector2D(
-    x: json['x'] as num? ?? 0,
-    y: json['y'] as num? ?? 0,
+    x: json['x'] as num,
+    y: json['y'] as num,
   );
 }
 
