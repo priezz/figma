@@ -1,78 +1,89 @@
 // GENERATED CODE - DO NOT MODIFY BY HAND
 
-part of 'line.dart';
+part of 'instance.dart';
 
 // **************************************************************************
 // CopyWithGenerator
 // **************************************************************************
 
-extension LineCopyWith on Line {
-  Line copyWith({
+extension InstanceCopyWith on Instance {
+  Instance copyWith({
     SizeRectangle? absoluteBoundingBox,
     BlendMode? blendMode,
+    List<Node>? children,
+    bool? clipsContent,
+    String? componentId,
     LayoutConstraint? constraints,
+    double? cornerRadius,
+    CounterAxisSizingMode? counterAxisSizingMode,
     List<Effect>? effects,
     List<ExportSetting>? exportSettings,
-    List<dynamic>? fillGeometry,
     List<Paint>? fills,
+    num? horizontalPadding,
     String? id,
     bool? isMask,
+    bool? isMaskOutline,
+    num? itemSpacing,
     LayoutAlign? layoutAlign,
-    double? layoutGrow,
+    List<LayoutGrid>? layoutGrids,
+    LayoutMode? layoutMode,
     bool? locked,
     String? name,
     double? opacity,
+    OverflowDirection? overflowDirection,
     dynamic? pluginData,
     bool? preserveRatio,
+    List<num>? rectangleCornerRadii,
     List<List<num>>? relativeTransform,
     dynamic? sharedPluginData,
     Vector2D? size,
     StrokeAlign? strokeAlign,
-    StrokeCap? strokeCap,
-    List<double>? strokeDashes,
-    List<dynamic>? strokeGeometry,
-    StrokeJoin? strokeJoin,
-    double? strokeMiterAngle,
-    double? strokeWeight,
+    num? strokeWeight,
     List<Paint>? strokes,
-    Map<StyleTypeKey, String>? styles,
     double? transitionDuration,
     EasingType? transitionEasing,
     String? transitionNodeID,
+    num? verticalPadding,
     bool? visible,
   }) {
-    return Line(
+    return Instance(
       absoluteBoundingBox: absoluteBoundingBox ?? this.absoluteBoundingBox,
       blendMode: blendMode ?? this.blendMode,
+      children: children ?? this.children,
+      clipsContent: clipsContent ?? this.clipsContent,
+      componentId: componentId ?? this.componentId,
       constraints: constraints ?? this.constraints,
+      cornerRadius: cornerRadius ?? this.cornerRadius,
+      counterAxisSizingMode:
+          counterAxisSizingMode ?? this.counterAxisSizingMode,
       effects: effects ?? this.effects,
       exportSettings: exportSettings ?? this.exportSettings,
-      fillGeometry: fillGeometry ?? this.fillGeometry,
       fills: fills ?? this.fills,
+      horizontalPadding: horizontalPadding ?? this.horizontalPadding,
       id: id ?? this.id,
       isMask: isMask ?? this.isMask,
+      isMaskOutline: isMaskOutline ?? this.isMaskOutline,
+      itemSpacing: itemSpacing ?? this.itemSpacing,
       layoutAlign: layoutAlign ?? this.layoutAlign,
-      layoutGrow: layoutGrow ?? this.layoutGrow,
+      layoutGrids: layoutGrids ?? this.layoutGrids,
+      layoutMode: layoutMode ?? this.layoutMode,
       locked: locked ?? this.locked,
       name: name ?? this.name,
       opacity: opacity ?? this.opacity,
+      overflowDirection: overflowDirection ?? this.overflowDirection,
       pluginData: pluginData ?? this.pluginData,
       preserveRatio: preserveRatio ?? this.preserveRatio,
+      rectangleCornerRadii: rectangleCornerRadii ?? this.rectangleCornerRadii,
       relativeTransform: relativeTransform ?? this.relativeTransform,
       sharedPluginData: sharedPluginData ?? this.sharedPluginData,
       size: size ?? this.size,
       strokeAlign: strokeAlign ?? this.strokeAlign,
-      strokeCap: strokeCap ?? this.strokeCap,
-      strokeDashes: strokeDashes ?? this.strokeDashes,
-      strokeGeometry: strokeGeometry ?? this.strokeGeometry,
-      strokeJoin: strokeJoin ?? this.strokeJoin,
-      strokeMiterAngle: strokeMiterAngle ?? this.strokeMiterAngle,
       strokeWeight: strokeWeight ?? this.strokeWeight,
       strokes: strokes ?? this.strokes,
-      styles: styles ?? this.styles,
       transitionDuration: transitionDuration ?? this.transitionDuration,
       transitionEasing: transitionEasing ?? this.transitionEasing,
       transitionNodeID: transitionNodeID ?? this.transitionNodeID,
+      verticalPadding: verticalPadding ?? this.verticalPadding,
       visible: visible ?? this.visible,
     );
   }
@@ -82,26 +93,42 @@ extension LineCopyWith on Line {
 // JsonSerializableGenerator
 // **************************************************************************
 
-Line _$LineFromJson(Map<String, dynamic> json) {
-  return Line(
+Instance _$InstanceFromJson(Map<String, dynamic> json) {
+  return Instance(
+    componentId: json['componentId'] as String?,
     id: json['id'] as String,
     name: json['name'] as String?,
     visible: json['visible'] as bool? ?? true,
     pluginData: json['pluginData'],
     sharedPluginData: json['sharedPluginData'],
-    locked: json['locked'] as bool?,
+    children: (json['children'] as List<dynamic>?)
+        ?.map(const NodeJsonConverter().fromJson)
+        .toList(),
+    locked: json['locked'] as bool? ?? false,
+    fills: (json['fills'] as List<dynamic>?)
+        ?.map((e) => Paint.fromJson(e as Map<String, dynamic>))
+        .toList(),
+    strokes: (json['strokes'] as List<dynamic>?)
+        ?.map((e) => Paint.fromJson(e as Map<String, dynamic>))
+        .toList(),
+    strokeWeight: json['strokeWeight'] as num?,
+    strokeAlign:
+        _$enumDecodeNullable(_$StrokeAlignEnumMap, json['strokeAlign']),
+    cornerRadius: (json['cornerRadius'] as num?)?.toDouble(),
+    rectangleCornerRadii: (json['rectangleCornerRadii'] as List<dynamic>?)
+        ?.map((e) => e as num)
+        .toList(),
     exportSettings: (json['exportSettings'] as List<dynamic>?)
         ?.map((e) => ExportSetting.fromJson(e as Map<String, dynamic>))
         .toList(),
     blendMode: _$enumDecodeNullable(_$BlendModeEnumMap, json['blendMode']),
     preserveRatio: json['preserveRatio'] as bool?,
-    layoutAlign:
-        _$enumDecodeNullable(_$LayoutAlignEnumMap, json['layoutAlign']),
-    layoutGrow: (json['layoutGrow'] as num?)?.toDouble(),
     constraints: json['constraints'] == null
         ? null
         : LayoutConstraint.fromJson(
             json['constraints'] as Map<String, dynamic>),
+    layoutAlign:
+        _$enumDecodeNullable(_$LayoutAlignEnumMap, json['layoutAlign']),
     transitionNodeID: json['transitionNodeID'] as String?,
     transitionDuration: (json['transitionDuration'] as num?)?.toDouble(),
     transitionEasing:
@@ -111,73 +138,73 @@ Line _$LineFromJson(Map<String, dynamic> json) {
         ? null
         : SizeRectangle.fromJson(
             json['absoluteBoundingBox'] as Map<String, dynamic>),
-    effects: (json['effects'] as List<dynamic>?)
-        ?.map((e) => Effect.fromJson(e as Map<String, dynamic>))
-        .toList(),
     size: json['size'] == null
         ? null
         : Vector2D.fromJson(json['size'] as Map<String, dynamic>),
     relativeTransform: (json['relativeTransform'] as List<dynamic>?)
         ?.map((e) => (e as List<dynamic>).map((e) => e as num).toList())
         .toList(),
+    clipsContent: json['clipsContent'] as bool?,
+    layoutMode: _$enumDecodeNullable(_$LayoutModeEnumMap, json['layoutMode']),
+    counterAxisSizingMode: _$enumDecodeNullable(
+        _$CounterAxisSizingModeEnumMap, json['counterAxisSizingMode']),
+    horizontalPadding: json['horizontalPadding'] as num?,
+    verticalPadding: json['verticalPadding'] as num?,
+    itemSpacing: json['itemSpacing'] as num?,
+    layoutGrids: (json['layoutGrids'] as List<dynamic>?)
+        ?.map((e) => LayoutGrid.fromJson(e as Map<String, dynamic>))
+        .toList(),
+    overflowDirection: _$enumDecodeNullable(
+        _$OverflowDirectionEnumMap, json['overflowDirection']),
+    effects: (json['effects'] as List<dynamic>?)
+        ?.map((e) => Effect.fromJson(e as Map<String, dynamic>))
+        .toList(),
     isMask: json['isMask'] as bool?,
-    fills: (json['fills'] as List<dynamic>?)
-        ?.map((e) => Paint.fromJson(e as Map<String, dynamic>))
-        .toList(),
-    fillGeometry: json['fillGeometry'] as List<dynamic>?,
-    strokes: (json['strokes'] as List<dynamic>?)
-        ?.map((e) => Paint.fromJson(e as Map<String, dynamic>))
-        .toList(),
-    strokeWeight: (json['strokeWeight'] as num?)?.toDouble(),
-    strokeCap: _$enumDecodeNullable(_$StrokeCapEnumMap, json['strokeCap']),
-    strokeJoin: _$enumDecodeNullable(_$StrokeJoinEnumMap, json['strokeJoin']),
-    strokeDashes: (json['strokeDashes'] as List<dynamic>?)
-        ?.map((e) => (e as num).toDouble())
-        .toList(),
-    strokeMiterAngle: (json['strokeMiterAngle'] as num?)?.toDouble(),
-    strokeGeometry: json['strokeGeometry'] as List<dynamic>?,
-    strokeAlign:
-        _$enumDecodeNullable(_$StrokeAlignEnumMap, json['strokeAlign']),
-    styles: (json['styles'] as Map<String, dynamic>?)?.map(
-      (k, e) => MapEntry(_$enumDecode(_$StyleTypeKeyEnumMap, k), e as String),
-    ),
+    isMaskOutline: json['isMaskOutline'] as bool?,
   );
 }
 
-Map<String, dynamic> _$LineToJson(Line instance) => <String, dynamic>{
+Map<String, dynamic> _$InstanceToJson(Instance instance) => <String, dynamic>{
       'id': instance.id,
       'name': instance.name,
       'visible': instance.visible,
       'pluginData': instance.pluginData,
       'sharedPluginData': instance.sharedPluginData,
+      'children':
+          instance.children?.map(const NodeJsonConverter().toJson).toList(),
       'locked': instance.locked,
+      'fills': instance.fills,
+      'strokes': instance.strokes,
+      'strokeWeight': instance.strokeWeight,
+      'strokeAlign': _$StrokeAlignEnumMap[instance.strokeAlign],
+      'cornerRadius': instance.cornerRadius,
+      'rectangleCornerRadii': instance.rectangleCornerRadii,
       'exportSettings': instance.exportSettings,
       'blendMode': _$BlendModeEnumMap[instance.blendMode],
       'preserveRatio': instance.preserveRatio,
-      'layoutGrow': instance.layoutGrow,
-      'layoutAlign': _$LayoutAlignEnumMap[instance.layoutAlign],
       'constraints': instance.constraints,
+      'layoutAlign': _$LayoutAlignEnumMap[instance.layoutAlign],
       'transitionNodeID': instance.transitionNodeID,
       'transitionDuration': instance.transitionDuration,
       'transitionEasing': _$EasingTypeEnumMap[instance.transitionEasing],
       'opacity': instance.opacity,
       'absoluteBoundingBox': instance.absoluteBoundingBox,
-      'effects': instance.effects,
       'size': instance.size,
       'relativeTransform': instance.relativeTransform,
+      'clipsContent': instance.clipsContent,
+      'layoutMode': _$LayoutModeEnumMap[instance.layoutMode],
+      'counterAxisSizingMode':
+          _$CounterAxisSizingModeEnumMap[instance.counterAxisSizingMode],
+      'horizontalPadding': instance.horizontalPadding,
+      'verticalPadding': instance.verticalPadding,
+      'itemSpacing': instance.itemSpacing,
+      'layoutGrids': instance.layoutGrids,
+      'overflowDirection':
+          _$OverflowDirectionEnumMap[instance.overflowDirection],
+      'effects': instance.effects,
       'isMask': instance.isMask,
-      'fills': instance.fills,
-      'fillGeometry': instance.fillGeometry,
-      'strokes': instance.strokes,
-      'strokeWeight': instance.strokeWeight,
-      'strokeCap': _$StrokeCapEnumMap[instance.strokeCap],
-      'strokeJoin': _$StrokeJoinEnumMap[instance.strokeJoin],
-      'strokeDashes': instance.strokeDashes,
-      'strokeMiterAngle': instance.strokeMiterAngle,
-      'strokeGeometry': instance.strokeGeometry,
-      'strokeAlign': _$StrokeAlignEnumMap[instance.strokeAlign],
-      'styles':
-          instance.styles?.map((k, e) => MapEntry(_$StyleTypeKeyEnumMap[k], e)),
+      'isMaskOutline': instance.isMaskOutline,
+      'componentId': instance.componentId,
     };
 
 K _$enumDecode<K, V>(
@@ -186,7 +213,7 @@ K _$enumDecode<K, V>(
   K? unknownValue,
 }) {
   if (source == null) {
-    print(
+    throw ArgumentError(
       'A value must be provided. Supported values: '
       '${enumValues.values.join(', ')}',
     );
@@ -196,7 +223,7 @@ K _$enumDecode<K, V>(
     (e) => e.value == source,
     orElse: () {
       if (unknownValue == null) {
-        print(
+        throw ArgumentError(
           '`$source` is not one of the supported values: '
           '${enumValues.values.join(', ')}',
         );
@@ -216,6 +243,12 @@ K? _$enumDecodeNullable<K, V>(
   }
   return _$enumDecode<K, V>(enumValues, source, unknownValue: unknownValue);
 }
+
+const _$StrokeAlignEnumMap = {
+  StrokeAlign.inside: 'INSIDE',
+  StrokeAlign.outside: 'OUTSIDE',
+  StrokeAlign.center: 'CENTER',
+};
 
 const _$BlendModeEnumMap = {
   BlendMode.passThrough: 'PASS_THROUGH',
@@ -254,30 +287,20 @@ const _$EasingTypeEnumMap = {
   EasingType.linear: 'LINEAR',
 };
 
-const _$StrokeCapEnumMap = {
-  StrokeCap.none: 'NONE',
-  StrokeCap.round: 'ROUND',
-  StrokeCap.square: 'SQUARE',
-  StrokeCap.lineArrow: 'LINE_ARROW',
-  StrokeCap.triangleArrow: 'TRIANGLE_ARROW',
+const _$LayoutModeEnumMap = {
+  LayoutMode.none: 'NONE',
+  LayoutMode.horizontal: 'HORIZONTAL',
+  LayoutMode.vertical: 'VERTICAL',
 };
 
-const _$StrokeJoinEnumMap = {
-  StrokeJoin.miter: 'MITER',
-  StrokeJoin.bevel: 'BEVEL',
-  StrokeJoin.round: 'ROUND',
+const _$CounterAxisSizingModeEnumMap = {
+  CounterAxisSizingMode.fixed: 'FIXED',
+  CounterAxisSizingMode.auto: 'AUTO',
 };
 
-const _$StrokeAlignEnumMap = {
-  StrokeAlign.inside: 'INSIDE',
-  StrokeAlign.outside: 'OUTSIDE',
-  StrokeAlign.center: 'CENTER',
-};
-
-const _$StyleTypeKeyEnumMap = {
-  StyleTypeKey.fill: 'fill',
-  StyleTypeKey.stroke: 'stroke',
-  StyleTypeKey.text: 'text',
-  StyleTypeKey.effect: 'effect',
-  StyleTypeKey.grid: 'grid',
+const _$OverflowDirectionEnumMap = {
+  OverflowDirection.horizontalScrolling: 'HORIZONTAL_SCROLLING',
+  OverflowDirection.verticalScrolling: 'VERTICAL_SCROLLING',
+  OverflowDirection.horizontalVerticalScrolling:
+      'HORIZONTAL_AND_VERICAL_SCROLLING',
 };

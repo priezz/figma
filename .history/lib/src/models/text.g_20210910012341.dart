@@ -1,15 +1,17 @@
 // GENERATED CODE - DO NOT MODIFY BY HAND
 
-part of 'line.dart';
+part of 'text.dart';
 
 // **************************************************************************
 // CopyWithGenerator
 // **************************************************************************
 
-extension LineCopyWith on Line {
-  Line copyWith({
+extension TextCopyWith on Text {
+  Text copyWith({
     SizeRectangle? absoluteBoundingBox,
     BlendMode? blendMode,
+    List<int>? characterStyleOverrides,
+    String? characters,
     LayoutConstraint? constraints,
     List<Effect>? effects,
     List<ExportSetting>? exportSettings,
@@ -35,15 +37,20 @@ extension LineCopyWith on Line {
     double? strokeMiterAngle,
     double? strokeWeight,
     List<Paint>? strokes,
+    TypeStyle? style,
+    Map<int, TypeStyle>? styleOverrideTable,
     Map<StyleTypeKey, String>? styles,
     double? transitionDuration,
     EasingType? transitionEasing,
     String? transitionNodeID,
     bool? visible,
   }) {
-    return Line(
+    return Text(
       absoluteBoundingBox: absoluteBoundingBox ?? this.absoluteBoundingBox,
       blendMode: blendMode ?? this.blendMode,
+      characterStyleOverrides:
+          characterStyleOverrides ?? this.characterStyleOverrides,
+      characters: characters ?? this.characters,
       constraints: constraints ?? this.constraints,
       effects: effects ?? this.effects,
       exportSettings: exportSettings ?? this.exportSettings,
@@ -69,6 +76,8 @@ extension LineCopyWith on Line {
       strokeMiterAngle: strokeMiterAngle ?? this.strokeMiterAngle,
       strokeWeight: strokeWeight ?? this.strokeWeight,
       strokes: strokes ?? this.strokes,
+      style: style ?? this.style,
+      styleOverrideTable: styleOverrideTable ?? this.styleOverrideTable,
       styles: styles ?? this.styles,
       transitionDuration: transitionDuration ?? this.transitionDuration,
       transitionEasing: transitionEasing ?? this.transitionEasing,
@@ -82,8 +91,20 @@ extension LineCopyWith on Line {
 // JsonSerializableGenerator
 // **************************************************************************
 
-Line _$LineFromJson(Map<String, dynamic> json) {
-  return Line(
+Text _$TextFromJson(Map<String, dynamic> json) {
+  return Text(
+    characters: json['characters'] as String?,
+    style: json['style'] == null
+        ? null
+        : TypeStyle.fromJson(json['style'] as Map<String, dynamic>),
+    characterStyleOverrides: (json['characterStyleOverrides'] as List<dynamic>?)
+        ?.map((e) => e as int)
+        .toList(),
+    styleOverrideTable:
+        (json['styleOverrideTable'] as Map<String, dynamic>?)?.map(
+      (k, e) =>
+          MapEntry(int.parse(k), TypeStyle.fromJson(e as Map<String, dynamic>)),
+    ),
     id: json['id'] as String,
     name: json['name'] as String?,
     visible: json['visible'] as bool? ?? true,
@@ -144,7 +165,7 @@ Line _$LineFromJson(Map<String, dynamic> json) {
   );
 }
 
-Map<String, dynamic> _$LineToJson(Line instance) => <String, dynamic>{
+Map<String, dynamic> _$TextToJson(Text instance) => <String, dynamic>{
       'id': instance.id,
       'name': instance.name,
       'visible': instance.visible,
@@ -178,6 +199,11 @@ Map<String, dynamic> _$LineToJson(Line instance) => <String, dynamic>{
       'strokeAlign': _$StrokeAlignEnumMap[instance.strokeAlign],
       'styles':
           instance.styles?.map((k, e) => MapEntry(_$StyleTypeKeyEnumMap[k], e)),
+      'characters': instance.characters,
+      'style': instance.style,
+      'characterStyleOverrides': instance.characterStyleOverrides,
+      'styleOverrideTable':
+          instance.styleOverrideTable?.map((k, e) => MapEntry(k.toString(), e)),
     };
 
 K _$enumDecode<K, V>(
@@ -186,7 +212,7 @@ K _$enumDecode<K, V>(
   K? unknownValue,
 }) {
   if (source == null) {
-    print(
+    throw ArgumentError(
       'A value must be provided. Supported values: '
       '${enumValues.values.join(', ')}',
     );
@@ -196,7 +222,7 @@ K _$enumDecode<K, V>(
     (e) => e.value == source,
     orElse: () {
       if (unknownValue == null) {
-        print(
+        throw ArgumentError(
           '`$source` is not one of the supported values: '
           '${enumValues.values.join(', ')}',
         );

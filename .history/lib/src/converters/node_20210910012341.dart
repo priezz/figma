@@ -47,8 +47,7 @@ class NodeJsonConverter implements JsonConverter<Node?, Object?> {
       case 'VARIANT_COMPONENT':
         return Frame.fromJson(json);
       default:
-        print('Unsupported node type : ${node.type}');
-        return null;
+        throw UnsupportedError('Unsupported node type : ${node.type}');
     }
   }
 

@@ -1,19 +1,20 @@
 // GENERATED CODE - DO NOT MODIFY BY HAND
 
-part of 'group.dart';
+part of 'frame.dart';
 
 // **************************************************************************
 // CopyWithGenerator
 // **************************************************************************
 
-extension GroupCopyWith on Group {
-  Group copyWith({
+extension FrameCopyWith on Frame {
+  Frame copyWith({
     SizeRectangle? absoluteBoundingBox,
     BlendMode? blendMode,
     List<Node>? children,
     bool? clipsContent,
     LayoutConstraint? constraints,
     double? cornerRadius,
+    CounterAxisAlignItems? counterAxisAlignItems,
     CounterAxisSizingMode? counterAxisSizingMode,
     List<Effect>? effects,
     List<ExportSetting>? exportSettings,
@@ -30,8 +31,14 @@ extension GroupCopyWith on Group {
     String? name,
     double? opacity,
     OverflowDirection? overflowDirection,
+    double? paddingBottom,
+    double? paddingLeft,
+    double? paddingRight,
+    double? paddingTop,
     dynamic? pluginData,
     bool? preserveRatio,
+    PrimaryAxisAlignItems? primaryAxisAlignItems,
+    PrimaryAxisSizingMode? primaryAxisSizingMode,
     List<num>? rectangleCornerRadii,
     List<List<num>>? relativeTransform,
     dynamic? sharedPluginData,
@@ -45,13 +52,15 @@ extension GroupCopyWith on Group {
     num? verticalPadding,
     bool? visible,
   }) {
-    return Group(
+    return Frame(
       absoluteBoundingBox: absoluteBoundingBox ?? this.absoluteBoundingBox,
       blendMode: blendMode ?? this.blendMode,
       children: children ?? this.children,
       clipsContent: clipsContent ?? this.clipsContent,
       constraints: constraints ?? this.constraints,
       cornerRadius: cornerRadius ?? this.cornerRadius,
+      counterAxisAlignItems:
+          counterAxisAlignItems ?? this.counterAxisAlignItems,
       counterAxisSizingMode:
           counterAxisSizingMode ?? this.counterAxisSizingMode,
       effects: effects ?? this.effects,
@@ -69,8 +78,16 @@ extension GroupCopyWith on Group {
       name: name ?? this.name,
       opacity: opacity ?? this.opacity,
       overflowDirection: overflowDirection ?? this.overflowDirection,
+      paddingBottom: paddingBottom ?? this.paddingBottom,
+      paddingLeft: paddingLeft ?? this.paddingLeft,
+      paddingRight: paddingRight ?? this.paddingRight,
+      paddingTop: paddingTop ?? this.paddingTop,
       pluginData: pluginData ?? this.pluginData,
       preserveRatio: preserveRatio ?? this.preserveRatio,
+      primaryAxisAlignItems:
+          primaryAxisAlignItems ?? this.primaryAxisAlignItems,
+      primaryAxisSizingMode:
+          primaryAxisSizingMode ?? this.primaryAxisSizingMode,
       rectangleCornerRadii: rectangleCornerRadii ?? this.rectangleCornerRadii,
       relativeTransform: relativeTransform ?? this.relativeTransform,
       sharedPluginData: sharedPluginData ?? this.sharedPluginData,
@@ -91,8 +108,8 @@ extension GroupCopyWith on Group {
 // JsonSerializableGenerator
 // **************************************************************************
 
-Group _$GroupFromJson(Map<String, dynamic> json) {
-  return Group(
+Frame _$FrameFromJson(Map<String, dynamic> json) {
+  return Frame(
     id: json['id'] as String,
     name: json['name'] as String?,
     visible: json['visible'] as bool? ?? true,
@@ -143,8 +160,18 @@ Group _$GroupFromJson(Map<String, dynamic> json) {
         .toList(),
     clipsContent: json['clipsContent'] as bool?,
     layoutMode: _$enumDecodeNullable(_$LayoutModeEnumMap, json['layoutMode']),
+    primaryAxisAlignItems: _$enumDecodeNullable(
+        _$PrimaryAxisAlignItemsEnumMap, json['primaryAxisAlignItems']),
+    counterAxisAlignItems: _$enumDecodeNullable(
+        _$CounterAxisAlignItemsEnumMap, json['counterAxisAlignItems']),
+    primaryAxisSizingMode: _$enumDecodeNullable(
+        _$PrimaryAxisSizingModeEnumMap, json['primaryAxisSizingMode']),
     counterAxisSizingMode: _$enumDecodeNullable(
         _$CounterAxisSizingModeEnumMap, json['counterAxisSizingMode']),
+    paddingBottom: (json['paddingBottom'] as num?)?.toDouble(),
+    paddingLeft: (json['paddingLeft'] as num?)?.toDouble(),
+    paddingRight: (json['paddingRight'] as num?)?.toDouble(),
+    paddingTop: (json['paddingTop'] as num?)?.toDouble(),
     horizontalPadding: json['horizontalPadding'] as num?,
     verticalPadding: json['verticalPadding'] as num?,
     itemSpacing: json['itemSpacing'] as num?,
@@ -161,7 +188,7 @@ Group _$GroupFromJson(Map<String, dynamic> json) {
   );
 }
 
-Map<String, dynamic> _$GroupToJson(Group instance) => <String, dynamic>{
+Map<String, dynamic> _$FrameToJson(Frame instance) => <String, dynamic>{
       'id': instance.id,
       'name': instance.name,
       'visible': instance.visible,
@@ -181,6 +208,14 @@ Map<String, dynamic> _$GroupToJson(Group instance) => <String, dynamic>{
       'preserveRatio': instance.preserveRatio,
       'constraints': instance.constraints,
       'layoutAlign': _$LayoutAlignEnumMap[instance.layoutAlign],
+      'primaryAxisAlignItems':
+          _$PrimaryAxisAlignItemsEnumMap[instance.primaryAxisAlignItems],
+      'counterAxisAlignItems':
+          _$CounterAxisAlignItemsEnumMap[instance.counterAxisAlignItems],
+      'paddingLeft': instance.paddingLeft,
+      'paddingTop': instance.paddingTop,
+      'paddingRight': instance.paddingRight,
+      'paddingBottom': instance.paddingBottom,
       'transitionNodeID': instance.transitionNodeID,
       'transitionDuration': instance.transitionDuration,
       'transitionEasing': _$EasingTypeEnumMap[instance.transitionEasing],
@@ -192,6 +227,8 @@ Map<String, dynamic> _$GroupToJson(Group instance) => <String, dynamic>{
       'layoutMode': _$LayoutModeEnumMap[instance.layoutMode],
       'counterAxisSizingMode':
           _$CounterAxisSizingModeEnumMap[instance.counterAxisSizingMode],
+      'primaryAxisSizingMode':
+          _$PrimaryAxisSizingModeEnumMap[instance.primaryAxisSizingMode],
       'horizontalPadding': instance.horizontalPadding,
       'verticalPadding': instance.verticalPadding,
       'itemSpacing': instance.itemSpacing,
@@ -209,7 +246,7 @@ K _$enumDecode<K, V>(
   K? unknownValue,
 }) {
   if (source == null) {
-    print(
+    throw ArgumentError(
       'A value must be provided. Supported values: '
       '${enumValues.values.join(', ')}',
     );
@@ -219,7 +256,7 @@ K _$enumDecode<K, V>(
     (e) => e.value == source,
     orElse: () {
       if (unknownValue == null) {
-        print(
+        throw ArgumentError(
           '`$source` is not one of the supported values: '
           '${enumValues.values.join(', ')}',
         );
@@ -287,6 +324,24 @@ const _$LayoutModeEnumMap = {
   LayoutMode.none: 'NONE',
   LayoutMode.horizontal: 'HORIZONTAL',
   LayoutMode.vertical: 'VERTICAL',
+};
+
+const _$PrimaryAxisAlignItemsEnumMap = {
+  PrimaryAxisAlignItems.min: 'MIN',
+  PrimaryAxisAlignItems.center: 'CENTER',
+  PrimaryAxisAlignItems.max: 'MAX',
+  PrimaryAxisAlignItems.spaceBetween: 'SPACE_BETWEEN',
+};
+
+const _$CounterAxisAlignItemsEnumMap = {
+  CounterAxisAlignItems.min: 'MIN',
+  CounterAxisAlignItems.center: 'CENTER',
+  CounterAxisAlignItems.max: 'MAX',
+};
+
+const _$PrimaryAxisSizingModeEnumMap = {
+  PrimaryAxisSizingMode.fixed: 'FIXED',
+  PrimaryAxisSizingMode.auto: 'AUTO',
 };
 
 const _$CounterAxisSizingModeEnumMap = {

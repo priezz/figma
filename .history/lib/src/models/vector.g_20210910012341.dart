@@ -1,13 +1,13 @@
 // GENERATED CODE - DO NOT MODIFY BY HAND
 
-part of 'line.dart';
+part of 'vector.dart';
 
 // **************************************************************************
 // CopyWithGenerator
 // **************************************************************************
 
-extension LineCopyWith on Line {
-  Line copyWith({
+extension VectorCopyWith on Vector {
+  Vector copyWith({
     SizeRectangle? absoluteBoundingBox,
     BlendMode? blendMode,
     LayoutConstraint? constraints,
@@ -41,7 +41,7 @@ extension LineCopyWith on Line {
     String? transitionNodeID,
     bool? visible,
   }) {
-    return Line(
+    return Vector(
       absoluteBoundingBox: absoluteBoundingBox ?? this.absoluteBoundingBox,
       blendMode: blendMode ?? this.blendMode,
       constraints: constraints ?? this.constraints,
@@ -82,8 +82,8 @@ extension LineCopyWith on Line {
 // JsonSerializableGenerator
 // **************************************************************************
 
-Line _$LineFromJson(Map<String, dynamic> json) {
-  return Line(
+Vector _$VectorFromJson(Map<String, dynamic> json) {
+  return Vector(
     id: json['id'] as String,
     name: json['name'] as String?,
     visible: json['visible'] as bool? ?? true,
@@ -144,7 +144,7 @@ Line _$LineFromJson(Map<String, dynamic> json) {
   );
 }
 
-Map<String, dynamic> _$LineToJson(Line instance) => <String, dynamic>{
+Map<String, dynamic> _$VectorToJson(Vector instance) => <String, dynamic>{
       'id': instance.id,
       'name': instance.name,
       'visible': instance.visible,
@@ -186,7 +186,7 @@ K _$enumDecode<K, V>(
   K? unknownValue,
 }) {
   if (source == null) {
-    print(
+    throw ArgumentError(
       'A value must be provided. Supported values: '
       '${enumValues.values.join(', ')}',
     );
@@ -196,7 +196,7 @@ K _$enumDecode<K, V>(
     (e) => e.value == source,
     orElse: () {
       if (unknownValue == null) {
-        print(
+        throw ArgumentError(
           '`$source` is not one of the supported values: '
           '${enumValues.values.join(', ')}',
         );

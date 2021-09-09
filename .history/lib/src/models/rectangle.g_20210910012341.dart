@@ -1,16 +1,17 @@
 // GENERATED CODE - DO NOT MODIFY BY HAND
 
-part of 'line.dart';
+part of 'rectangle.dart';
 
 // **************************************************************************
 // CopyWithGenerator
 // **************************************************************************
 
-extension LineCopyWith on Line {
-  Line copyWith({
+extension RectangleCopyWith on Rectangle {
+  Rectangle copyWith({
     SizeRectangle? absoluteBoundingBox,
     BlendMode? blendMode,
     LayoutConstraint? constraints,
+    num? cornerRadius,
     List<Effect>? effects,
     List<ExportSetting>? exportSettings,
     List<dynamic>? fillGeometry,
@@ -24,6 +25,7 @@ extension LineCopyWith on Line {
     double? opacity,
     dynamic? pluginData,
     bool? preserveRatio,
+    List<num>? rectangleCornerRadii,
     List<List<num>>? relativeTransform,
     dynamic? sharedPluginData,
     Vector2D? size,
@@ -41,10 +43,11 @@ extension LineCopyWith on Line {
     String? transitionNodeID,
     bool? visible,
   }) {
-    return Line(
+    return Rectangle(
       absoluteBoundingBox: absoluteBoundingBox ?? this.absoluteBoundingBox,
       blendMode: blendMode ?? this.blendMode,
       constraints: constraints ?? this.constraints,
+      cornerRadius: cornerRadius ?? this.cornerRadius,
       effects: effects ?? this.effects,
       exportSettings: exportSettings ?? this.exportSettings,
       fillGeometry: fillGeometry ?? this.fillGeometry,
@@ -58,6 +61,7 @@ extension LineCopyWith on Line {
       opacity: opacity ?? this.opacity,
       pluginData: pluginData ?? this.pluginData,
       preserveRatio: preserveRatio ?? this.preserveRatio,
+      rectangleCornerRadii: rectangleCornerRadii ?? this.rectangleCornerRadii,
       relativeTransform: relativeTransform ?? this.relativeTransform,
       sharedPluginData: sharedPluginData ?? this.sharedPluginData,
       size: size ?? this.size,
@@ -82,8 +86,12 @@ extension LineCopyWith on Line {
 // JsonSerializableGenerator
 // **************************************************************************
 
-Line _$LineFromJson(Map<String, dynamic> json) {
-  return Line(
+Rectangle _$RectangleFromJson(Map<String, dynamic> json) {
+  return Rectangle(
+    cornerRadius: json['cornerRadius'] as num?,
+    rectangleCornerRadii: (json['rectangleCornerRadii'] as List<dynamic>?)
+        ?.map((e) => e as num)
+        .toList(),
     id: json['id'] as String,
     name: json['name'] as String?,
     visible: json['visible'] as bool? ?? true,
@@ -144,7 +152,7 @@ Line _$LineFromJson(Map<String, dynamic> json) {
   );
 }
 
-Map<String, dynamic> _$LineToJson(Line instance) => <String, dynamic>{
+Map<String, dynamic> _$RectangleToJson(Rectangle instance) => <String, dynamic>{
       'id': instance.id,
       'name': instance.name,
       'visible': instance.visible,
@@ -178,6 +186,8 @@ Map<String, dynamic> _$LineToJson(Line instance) => <String, dynamic>{
       'strokeAlign': _$StrokeAlignEnumMap[instance.strokeAlign],
       'styles':
           instance.styles?.map((k, e) => MapEntry(_$StyleTypeKeyEnumMap[k], e)),
+      'cornerRadius': instance.cornerRadius,
+      'rectangleCornerRadii': instance.rectangleCornerRadii,
     };
 
 K _$enumDecode<K, V>(
@@ -186,7 +196,7 @@ K _$enumDecode<K, V>(
   K? unknownValue,
 }) {
   if (source == null) {
-    print(
+    throw ArgumentError(
       'A value must be provided. Supported values: '
       '${enumValues.values.join(', ')}',
     );
@@ -196,7 +206,7 @@ K _$enumDecode<K, V>(
     (e) => e.value == source,
     orElse: () {
       if (unknownValue == null) {
-        print(
+        throw ArgumentError(
           '`$source` is not one of the supported values: '
           '${enumValues.values.join(', ')}',
         );

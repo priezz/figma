@@ -1,15 +1,16 @@
 // GENERATED CODE - DO NOT MODIFY BY HAND
 
-part of 'line.dart';
+part of 'boolean_operation.dart';
 
 // **************************************************************************
 // CopyWithGenerator
 // **************************************************************************
 
-extension LineCopyWith on Line {
-  Line copyWith({
+extension BooleanOperationCopyWith on BooleanOperation {
+  BooleanOperation copyWith({
     SizeRectangle? absoluteBoundingBox,
     BlendMode? blendMode,
+    List<Node>? children,
     LayoutConstraint? constraints,
     List<Effect>? effects,
     List<ExportSetting>? exportSettings,
@@ -22,6 +23,7 @@ extension LineCopyWith on Line {
     bool? locked,
     String? name,
     double? opacity,
+    Operation? operation,
     dynamic? pluginData,
     bool? preserveRatio,
     List<List<num>>? relativeTransform,
@@ -41,9 +43,10 @@ extension LineCopyWith on Line {
     String? transitionNodeID,
     bool? visible,
   }) {
-    return Line(
+    return BooleanOperation(
       absoluteBoundingBox: absoluteBoundingBox ?? this.absoluteBoundingBox,
       blendMode: blendMode ?? this.blendMode,
+      children: children ?? this.children,
       constraints: constraints ?? this.constraints,
       effects: effects ?? this.effects,
       exportSettings: exportSettings ?? this.exportSettings,
@@ -56,6 +59,7 @@ extension LineCopyWith on Line {
       locked: locked ?? this.locked,
       name: name ?? this.name,
       opacity: opacity ?? this.opacity,
+      operation: operation ?? this.operation,
       pluginData: pluginData ?? this.pluginData,
       preserveRatio: preserveRatio ?? this.preserveRatio,
       relativeTransform: relativeTransform ?? this.relativeTransform,
@@ -82,8 +86,12 @@ extension LineCopyWith on Line {
 // JsonSerializableGenerator
 // **************************************************************************
 
-Line _$LineFromJson(Map<String, dynamic> json) {
-  return Line(
+BooleanOperation _$BooleanOperationFromJson(Map<String, dynamic> json) {
+  return BooleanOperation(
+    children: (json['children'] as List<dynamic>?)
+        ?.map(const NodeJsonConverter().fromJson)
+        .toList(),
+    operation: _$enumDecodeNullable(_$OperationEnumMap, json['operation']),
     id: json['id'] as String,
     name: json['name'] as String?,
     visible: json['visible'] as bool? ?? true,
@@ -144,7 +152,8 @@ Line _$LineFromJson(Map<String, dynamic> json) {
   );
 }
 
-Map<String, dynamic> _$LineToJson(Line instance) => <String, dynamic>{
+Map<String, dynamic> _$BooleanOperationToJson(BooleanOperation instance) =>
+    <String, dynamic>{
       'id': instance.id,
       'name': instance.name,
       'visible': instance.visible,
@@ -178,6 +187,9 @@ Map<String, dynamic> _$LineToJson(Line instance) => <String, dynamic>{
       'strokeAlign': _$StrokeAlignEnumMap[instance.strokeAlign],
       'styles':
           instance.styles?.map((k, e) => MapEntry(_$StyleTypeKeyEnumMap[k], e)),
+      'children':
+          instance.children?.map(const NodeJsonConverter().toJson).toList(),
+      'operation': _$OperationEnumMap[instance.operation],
     };
 
 K _$enumDecode<K, V>(
@@ -186,7 +198,7 @@ K _$enumDecode<K, V>(
   K? unknownValue,
 }) {
   if (source == null) {
-    print(
+    throw ArgumentError(
       'A value must be provided. Supported values: '
       '${enumValues.values.join(', ')}',
     );
@@ -196,7 +208,7 @@ K _$enumDecode<K, V>(
     (e) => e.value == source,
     orElse: () {
       if (unknownValue == null) {
-        print(
+        throw ArgumentError(
           '`$source` is not one of the supported values: '
           '${enumValues.values.join(', ')}',
         );
@@ -216,6 +228,13 @@ K? _$enumDecodeNullable<K, V>(
   }
   return _$enumDecode<K, V>(enumValues, source, unknownValue: unknownValue);
 }
+
+const _$OperationEnumMap = {
+  Operation.union: 'UNION',
+  Operation.intersect: 'INTERSECT',
+  Operation.subtract: 'SUBTRACT',
+  Operation.exclude: 'EXCLUDE',
+};
 
 const _$BlendModeEnumMap = {
   BlendMode.passThrough: 'PASS_THROUGH',

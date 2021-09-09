@@ -1,19 +1,21 @@
 // GENERATED CODE - DO NOT MODIFY BY HAND
 
-part of 'constraint.dart';
+part of 'export_setting.dart';
 
 // **************************************************************************
 // CopyWithGenerator
 // **************************************************************************
 
-extension ConstraintCopyWith on Constraint {
-  Constraint copyWith({
-    ConstraintType? type,
-    num? value,
+extension ExportSettingCopyWith on ExportSetting {
+  ExportSetting copyWith({
+    Constraint? constraint,
+    ExportFormat? format,
+    String? suffix,
   }) {
-    return Constraint(
-      type: type ?? this.type,
-      value: value ?? this.value,
+    return ExportSetting(
+      constraint: constraint ?? this.constraint,
+      format: format ?? this.format,
+      suffix: suffix ?? this.suffix,
     );
   }
 }
@@ -22,17 +24,21 @@ extension ConstraintCopyWith on Constraint {
 // JsonSerializableGenerator
 // **************************************************************************
 
-Constraint _$ConstraintFromJson(Map<String, dynamic> json) {
-  return Constraint(
-    type: _$enumDecodeNullable(_$ConstraintTypeEnumMap, json['type']),
-    value: json['value'] as num?,
+ExportSetting _$ExportSettingFromJson(Map<String, dynamic> json) {
+  return ExportSetting(
+    suffix: json['suffix'] as String?,
+    format: _$enumDecodeNullable(_$ExportFormatEnumMap, json['format']),
+    constraint: json['constraint'] == null
+        ? null
+        : Constraint.fromJson(json['constraint'] as Map<String, dynamic>),
   );
 }
 
-Map<String, dynamic> _$ConstraintToJson(Constraint instance) =>
+Map<String, dynamic> _$ExportSettingToJson(ExportSetting instance) =>
     <String, dynamic>{
-      'type': _$ConstraintTypeEnumMap[instance.type],
-      'value': instance.value,
+      'suffix': instance.suffix,
+      'format': _$ExportFormatEnumMap[instance.format],
+      'constraint': instance.constraint,
     };
 
 K _$enumDecode<K, V>(
@@ -41,7 +47,7 @@ K _$enumDecode<K, V>(
   K? unknownValue,
 }) {
   if (source == null) {
-    print(
+    throw ArgumentError(
       'A value must be provided. Supported values: '
       '${enumValues.values.join(', ')}',
     );
@@ -51,7 +57,7 @@ K _$enumDecode<K, V>(
     (e) => e.value == source,
     orElse: () {
       if (unknownValue == null) {
-        print(
+        throw ArgumentError(
           '`$source` is not one of the supported values: '
           '${enumValues.values.join(', ')}',
         );
@@ -72,8 +78,9 @@ K? _$enumDecodeNullable<K, V>(
   return _$enumDecode<K, V>(enumValues, source, unknownValue: unknownValue);
 }
 
-const _$ConstraintTypeEnumMap = {
-  ConstraintType.scale: 'SCALE',
-  ConstraintType.width: 'WIDTH',
-  ConstraintType.height: 'HEIGHT',
+const _$ExportFormatEnumMap = {
+  ExportFormat.jpg: 'JPG',
+  ExportFormat.png: 'PNG',
+  ExportFormat.svg: 'SVG',
+  ExportFormat.pdf: 'PDF',
 };
