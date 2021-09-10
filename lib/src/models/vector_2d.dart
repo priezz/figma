@@ -19,8 +19,10 @@ class Vector2D extends Equatable {
   @override
   List<Object> get props => [x, y];
 
-  factory Vector2D.fromJson(Map<String, dynamic> json) =>
-      _$Vector2DFromJson(json);
+  factory Vector2D.fromJson(Map<String, dynamic> json) => Vector2D(
+        x: json['x'] as num? ?? 0,
+        y: json['y'] as num? ?? 0,
+      );
 
   Map<String, dynamic> toJson() => _$Vector2DToJson(this);
 }
