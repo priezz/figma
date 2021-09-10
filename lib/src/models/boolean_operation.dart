@@ -117,6 +117,6 @@ class BooleanOperation extends Vector {
 ///        (k, e) => MapEntry(_$enumDecode(_$StyleTypeKeyEnumMap, k), e as String),
 ///      )
 /// with
-///  styles: (json['styles'] as Map<String, dynamic>?)?.map(
+///  styles: ((json['styles'] as Map<String, dynamic>?)?.map(
 ///        (k, e) => MapEntry(_$enumDecodeNullable(_$StyleTypeKeyEnumMap, k), e as String,),
-///      )?.removeWhere((k,v) => k == null)
+///      )?.removeWhere((k,v) => k == null)) as Map<StyleTypeKey, String>?

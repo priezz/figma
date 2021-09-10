@@ -137,10 +137,10 @@ Line _$LineFromJson(Map<String, dynamic> json) => Line(
       strokeGeometry: json['strokeGeometry'] as List<dynamic>?,
       strokeAlign:
           _$enumDecodeNullable(_$StrokeAlignEnumMap, json['strokeAlign']),
-      styles: (json['styles'] as Map<String, dynamic>?)?.map(
+      styles: ((json['styles'] as Map<String, dynamic>?)?.map(
         (k, e) => MapEntry(
             _$enumDecodeNullable(_$StyleTypeKeyEnumMap, k), e as String),
-      )?..removeWhere((k, v) => k == null),
+      )?..removeWhere((k, v) => k == null)),
     );
 
 Map<String, dynamic> _$LineToJson(Line instance) => <String, dynamic>{
