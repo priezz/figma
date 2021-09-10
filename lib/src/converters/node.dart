@@ -14,6 +14,7 @@ class NodeJsonConverter implements JsonConverter<Node?, Object?> {
     }
     final node = Node.fromJson(json as Map<String, dynamic>);
     switch (node.type?.toUpperCase()) {
+      // TODO: COMPONENT_SET
       case 'CANVAS':
         return Canvas.fromJson(json);
       case 'FRAME':

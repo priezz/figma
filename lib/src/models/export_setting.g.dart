@@ -24,15 +24,14 @@ extension ExportSettingCopyWith on ExportSetting {
 // JsonSerializableGenerator
 // **************************************************************************
 
-ExportSetting _$ExportSettingFromJson(Map<String, dynamic> json) {
-  return ExportSetting(
-    suffix: json['suffix'] as String?,
-    format: _$enumDecodeNullable(_$ExportFormatEnumMap, json['format']),
-    constraint: json['constraint'] == null
-        ? null
-        : Constraint.fromJson(json['constraint'] as Map<String, dynamic>),
-  );
-}
+ExportSetting _$ExportSettingFromJson(Map<String, dynamic> json) =>
+    ExportSetting(
+      suffix: json['suffix'] as String?,
+      format: _$enumDecodeNullable(_$ExportFormatEnumMap, json['format']),
+      constraint: json['constraint'] == null
+          ? null
+          : Constraint.fromJson(json['constraint'] as Map<String, dynamic>),
+    );
 
 Map<String, dynamic> _$ExportSettingToJson(ExportSetting instance) =>
     <String, dynamic>{
@@ -41,24 +40,23 @@ Map<String, dynamic> _$ExportSettingToJson(ExportSetting instance) =>
       'constraint': instance.constraint,
     };
 
-K? _$enumDecode<K, V>(
+K _$enumDecode<K, V>(
   Map<K, V> enumValues,
   Object? source, {
   K? unknownValue,
 }) {
   if (source == null) {
-    print(
+    throw ArgumentError(
       'A value must be provided. Supported values: '
       '${enumValues.values.join(', ')}',
     );
-    return null;
   }
 
   return enumValues.entries.singleWhere(
     (e) => e.value == source,
     orElse: () {
       if (unknownValue == null) {
-        print(
+        throw ArgumentError(
           '`$source` is not one of the supported values: '
           '${enumValues.values.join(', ')}',
         );

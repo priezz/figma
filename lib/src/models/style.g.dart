@@ -26,14 +26,12 @@ extension StyleCopyWith on Style {
 // JsonSerializableGenerator
 // **************************************************************************
 
-Style _$StyleFromJson(Map<String, dynamic> json) {
-  return Style(
-    key: json['key'] as String?,
-    name: json['name'] as String?,
-    description: json['description'] as String?,
-    type: _$enumDecodeNullable(_$StyleTypeEnumMap, json['style_type']),
-  );
-}
+Style _$StyleFromJson(Map<String, dynamic> json) => Style(
+      key: json['key'] as String?,
+      name: json['name'] as String?,
+      description: json['description'] as String?,
+      type: _$enumDecodeNullable(_$StyleTypeEnumMap, json['style_type']),
+    );
 
 Map<String, dynamic> _$StyleToJson(Style instance) => <String, dynamic>{
       'key': instance.key,
@@ -42,24 +40,23 @@ Map<String, dynamic> _$StyleToJson(Style instance) => <String, dynamic>{
       'style_type': _$StyleTypeEnumMap[instance.type],
     };
 
-K? _$enumDecode<K, V>(
+K _$enumDecode<K, V>(
   Map<K, V> enumValues,
   Object? source, {
   K? unknownValue,
 }) {
   if (source == null) {
-    print(
+    throw ArgumentError(
       'A value must be provided. Supported values: '
       '${enumValues.values.join(', ')}',
     );
-    return null;
   }
 
   return enumValues.entries.singleWhere(
     (e) => e.value == source,
     orElse: () {
       if (unknownValue == null) {
-        print(
+        throw ArgumentError(
           '`$source` is not one of the supported values: '
           '${enumValues.values.join(', ')}',
         );

@@ -30,20 +30,18 @@ extension EffectCopyWith on Effect {
 // JsonSerializableGenerator
 // **************************************************************************
 
-Effect _$EffectFromJson(Map<String, dynamic> json) {
-  return Effect(
-    type: _$enumDecodeNullable(_$EffectTypeEnumMap, json['type']),
-    visible: json['visible'] as bool? ?? true,
-    radius: json['radius'] as num?,
-    color: json['color'] == null
-        ? null
-        : Color.fromJson(json['color'] as Map<String, dynamic>),
-    blendMode: _$enumDecodeNullable(_$BlendModeEnumMap, json['blendMode']),
-    offset: json['offset'] == null
-        ? null
-        : Vector2D.fromJson(json['offset'] as Map<String, dynamic>),
-  );
-}
+Effect _$EffectFromJson(Map<String, dynamic> json) => Effect(
+      type: _$enumDecodeNullable(_$EffectTypeEnumMap, json['type']),
+      visible: json['visible'] as bool? ?? true,
+      radius: json['radius'] as num?,
+      color: json['color'] == null
+          ? null
+          : Color.fromJson(json['color'] as Map<String, dynamic>),
+      blendMode: _$enumDecodeNullable(_$BlendModeEnumMap, json['blendMode']),
+      offset: json['offset'] == null
+          ? null
+          : Vector2D.fromJson(json['offset'] as Map<String, dynamic>),
+    );
 
 Map<String, dynamic> _$EffectToJson(Effect instance) => <String, dynamic>{
       'type': _$EffectTypeEnumMap[instance.type],
@@ -54,24 +52,23 @@ Map<String, dynamic> _$EffectToJson(Effect instance) => <String, dynamic>{
       'offset': instance.offset,
     };
 
-K? _$enumDecode<K, V>(
+K _$enumDecode<K, V>(
   Map<K, V> enumValues,
   Object? source, {
   K? unknownValue,
 }) {
   if (source == null) {
-    print(
+    throw ArgumentError(
       'A value must be provided. Supported values: '
       '${enumValues.values.join(', ')}',
     );
-    return null;
   }
 
   return enumValues.entries.singleWhere(
     (e) => e.value == source,
     orElse: () {
       if (unknownValue == null) {
-        print(
+        throw ArgumentError(
           '`$source` is not one of the supported values: '
           '${enumValues.values.join(', ')}',
         );

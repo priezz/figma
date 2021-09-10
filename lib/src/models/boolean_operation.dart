@@ -111,3 +111,12 @@ class BooleanOperation extends Vector {
   @override
   Map<String, dynamic> toJson() => _$BooleanOperationToJson(this);
 }
+
+/// Replace
+/// styles: (json['styles'] as Map<String, dynamic>?)?.map(
+///        (k, e) => MapEntry(_$enumDecode(_$StyleTypeKeyEnumMap, k), e as String),
+///      )
+/// with
+///  styles: (json['styles'] as Map<String, dynamic>?)?.map(
+///        (k, e) => MapEntry(_$enumDecodeNullable(_$StyleTypeKeyEnumMap, k), e as String),
+///      ).removeWhere((k,v) => k == null)

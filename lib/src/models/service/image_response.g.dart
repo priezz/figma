@@ -24,15 +24,14 @@ extension ImageResponseCopyWith on ImageResponse {
 // JsonSerializableGenerator
 // **************************************************************************
 
-ImageResponse _$ImageResponseFromJson(Map<String, dynamic> json) {
-  return ImageResponse(
-    err: json['err'] as String?,
-    images: (json['images'] as Map<String, dynamic>?)?.map(
-      (k, e) => MapEntry(k, e as String),
-    ),
-    status: json['status'] as int?,
-  );
-}
+ImageResponse _$ImageResponseFromJson(Map<String, dynamic> json) =>
+    ImageResponse(
+      err: json['err'] as String?,
+      images: (json['images'] as Map<String, dynamic>?)?.map(
+        (k, e) => MapEntry(k, e as String),
+      ),
+      status: json['status'] as int?,
+    );
 
 Map<String, dynamic> _$ImageResponseToJson(ImageResponse instance) =>
     <String, dynamic>{

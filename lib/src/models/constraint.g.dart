@@ -22,12 +22,10 @@ extension ConstraintCopyWith on Constraint {
 // JsonSerializableGenerator
 // **************************************************************************
 
-Constraint _$ConstraintFromJson(Map<String, dynamic> json) {
-  return Constraint(
-    type: _$enumDecodeNullable(_$ConstraintTypeEnumMap, json['type']),
-    value: json['value'] as num?,
-  );
-}
+Constraint _$ConstraintFromJson(Map<String, dynamic> json) => Constraint(
+      type: _$enumDecodeNullable(_$ConstraintTypeEnumMap, json['type']),
+      value: json['value'] as num?,
+    );
 
 Map<String, dynamic> _$ConstraintToJson(Constraint instance) =>
     <String, dynamic>{
@@ -35,24 +33,23 @@ Map<String, dynamic> _$ConstraintToJson(Constraint instance) =>
       'value': instance.value,
     };
 
-K? _$enumDecode<K, V>(
+K _$enumDecode<K, V>(
   Map<K, V> enumValues,
   Object? source, {
   K? unknownValue,
 }) {
   if (source == null) {
-    print(
+    throw ArgumentError(
       'A value must be provided. Supported values: '
       '${enumValues.values.join(', ')}',
     );
-    return null;
   }
 
   return enumValues.entries.singleWhere(
     (e) => e.value == source,
     orElse: () {
       if (unknownValue == null) {
-        print(
+        throw ArgumentError(
           '`$source` is not one of the supported values: '
           '${enumValues.values.join(', ')}',
         );

@@ -34,20 +34,18 @@ extension LayoutGridCopyWith on LayoutGrid {
 // JsonSerializableGenerator
 // **************************************************************************
 
-LayoutGrid _$LayoutGridFromJson(Map<String, dynamic> json) {
-  return LayoutGrid(
-    pattern: _$enumDecodeNullable(_$LayoutPatternEnumMap, json['pattern']),
-    sectionSize: (json['sectionSize'] as num?)?.toDouble(),
-    visible: json['visible'] as bool?,
-    color: json['color'] == null
-        ? null
-        : Color.fromJson(json['color'] as Map<String, dynamic>),
-    alignment: _$enumDecodeNullable(_$LayoutAlignEnumMap, json['alignment']),
-    gutterSize: (json['gutterSize'] as num?)?.toDouble(),
-    offset: (json['offset'] as num?)?.toDouble(),
-    count: json['count'] as int?,
-  );
-}
+LayoutGrid _$LayoutGridFromJson(Map<String, dynamic> json) => LayoutGrid(
+      pattern: _$enumDecodeNullable(_$LayoutPatternEnumMap, json['pattern']),
+      sectionSize: (json['sectionSize'] as num?)?.toDouble(),
+      visible: json['visible'] as bool?,
+      color: json['color'] == null
+          ? null
+          : Color.fromJson(json['color'] as Map<String, dynamic>),
+      alignment: _$enumDecodeNullable(_$LayoutAlignEnumMap, json['alignment']),
+      gutterSize: (json['gutterSize'] as num?)?.toDouble(),
+      offset: (json['offset'] as num?)?.toDouble(),
+      count: json['count'] as int?,
+    );
 
 Map<String, dynamic> _$LayoutGridToJson(LayoutGrid instance) =>
     <String, dynamic>{
@@ -61,24 +59,23 @@ Map<String, dynamic> _$LayoutGridToJson(LayoutGrid instance) =>
       'count': instance.count,
     };
 
-K? _$enumDecode<K, V>(
+K _$enumDecode<K, V>(
   Map<K, V> enumValues,
   Object? source, {
   K? unknownValue,
 }) {
   if (source == null) {
-    print(
+    throw ArgumentError(
       'A value must be provided. Supported values: '
       '${enumValues.values.join(', ')}',
     );
-    return null;
   }
 
   return enumValues.entries.singleWhere(
     (e) => e.value == source,
     orElse: () {
       if (unknownValue == null) {
-        print(
+        throw ArgumentError(
           '`$source` is not one of the supported values: '
           '${enumValues.values.join(', ')}',
         );

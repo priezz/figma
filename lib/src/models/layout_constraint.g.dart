@@ -22,14 +22,13 @@ extension LayoutConstraintCopyWith on LayoutConstraint {
 // JsonSerializableGenerator
 // **************************************************************************
 
-LayoutConstraint _$LayoutConstraintFromJson(Map<String, dynamic> json) {
-  return LayoutConstraint(
-    vertical:
-        _$enumDecodeNullable(_$VerticalConstraintEnumMap, json['vertical']),
-    horizontal:
-        _$enumDecodeNullable(_$HorizontalConstraintEnumMap, json['horizontal']),
-  );
-}
+LayoutConstraint _$LayoutConstraintFromJson(Map<String, dynamic> json) =>
+    LayoutConstraint(
+      vertical:
+          _$enumDecodeNullable(_$VerticalConstraintEnumMap, json['vertical']),
+      horizontal: _$enumDecodeNullable(
+          _$HorizontalConstraintEnumMap, json['horizontal']),
+    );
 
 Map<String, dynamic> _$LayoutConstraintToJson(LayoutConstraint instance) =>
     <String, dynamic>{
@@ -37,24 +36,23 @@ Map<String, dynamic> _$LayoutConstraintToJson(LayoutConstraint instance) =>
       'horizontal': _$HorizontalConstraintEnumMap[instance.horizontal],
     };
 
-K? _$enumDecode<K, V>(
+K _$enumDecode<K, V>(
   Map<K, V> enumValues,
   Object? source, {
   K? unknownValue,
 }) {
   if (source == null) {
-    print(
+    throw ArgumentError(
       'A value must be provided. Supported values: '
       '${enumValues.values.join(', ')}',
     );
-    return null;
   }
 
   return enumValues.entries.singleWhere(
     (e) => e.value == source,
     orElse: () {
       if (unknownValue == null) {
-        print(
+        throw ArgumentError(
           '`$source` is not one of the supported values: '
           '${enumValues.values.join(', ')}',
         );
