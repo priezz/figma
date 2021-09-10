@@ -33,7 +33,7 @@ class Group extends Frame {
     double? opacity,
     SizeRectangle? absoluteBoundingBox,
     Vector2D? size,
-    List<List<num>>? relativeTransform,
+    List<List<num?>>? relativeTransform,
     bool? clipsContent,
     LayoutMode? layoutMode,
     CounterAxisSizingMode? counterAxisSizingMode,

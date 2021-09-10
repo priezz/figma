@@ -26,7 +26,7 @@ extension RectangleCopyWith on Rectangle {
     dynamic? pluginData,
     bool? preserveRatio,
     List<num>? rectangleCornerRadii,
-    List<List<num>>? relativeTransform,
+    List<List<num?>>? relativeTransform,
     dynamic? sharedPluginData,
     Vector2D? size,
     StrokeAlign? strokeAlign,
@@ -125,7 +125,7 @@ Rectangle _$RectangleFromJson(Map<String, dynamic> json) => Rectangle(
           ? null
           : Vector2D.fromJson(json['size'] as Map<String, dynamic>),
       relativeTransform: (json['relativeTransform'] as List<dynamic>?)
-          ?.map((e) => (e as List<dynamic>).map((e) => e as num).toList())
+          ?.map((e) => (e as List<dynamic>).map((e) => e as num?).toList())
           .toList(),
       isMask: json['isMask'] as bool?,
       fills: (json['fills'] as List<dynamic>?)

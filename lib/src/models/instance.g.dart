@@ -34,7 +34,7 @@ extension InstanceCopyWith on Instance {
     dynamic? pluginData,
     bool? preserveRatio,
     List<num>? rectangleCornerRadii,
-    List<List<num>>? relativeTransform,
+    List<List<num?>>? relativeTransform,
     dynamic? sharedPluginData,
     Vector2D? size,
     StrokeAlign? strokeAlign,
@@ -141,7 +141,7 @@ Instance _$InstanceFromJson(Map<String, dynamic> json) => Instance(
           ? null
           : Vector2D.fromJson(json['size'] as Map<String, dynamic>),
       relativeTransform: (json['relativeTransform'] as List<dynamic>?)
-          ?.map((e) => (e as List<dynamic>).map((e) => e as num).toList())
+          ?.map((e) => (e as List<dynamic>).map((e) => e as num?).toList())
           .toList(),
       clipsContent: json['clipsContent'] as bool?,
       layoutMode: _$enumDecodeNullable(_$LayoutModeEnumMap, json['layoutMode']),

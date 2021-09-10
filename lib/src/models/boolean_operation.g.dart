@@ -26,7 +26,7 @@ extension BooleanOperationCopyWith on BooleanOperation {
     Operation? operation,
     dynamic? pluginData,
     bool? preserveRatio,
-    List<List<num>>? relativeTransform,
+    List<List<num?>>? relativeTransform,
     dynamic? sharedPluginData,
     Vector2D? size,
     StrokeAlign? strokeAlign,
@@ -126,7 +126,7 @@ BooleanOperation _$BooleanOperationFromJson(Map<String, dynamic> json) =>
           ? null
           : Vector2D.fromJson(json['size'] as Map<String, dynamic>),
       relativeTransform: (json['relativeTransform'] as List<dynamic>?)
-          ?.map((e) => (e as List<dynamic>).map((e) => e as num).toList())
+          ?.map((e) => (e as List<dynamic>).map((e) => e as num?).toList())
           .toList(),
       isMask: json['isMask'] as bool?,
       fills: (json['fills'] as List<dynamic>?)

@@ -29,7 +29,7 @@ class Line extends Vector {
     SizeRectangle? absoluteBoundingBox,
     List<Effect>? effects,
     Vector2D? size,
-    List<List<num>>? relativeTransform,
+    List<List<num?>>? relativeTransform,
     bool? isMask,
     List<Paint>? fills,
     List<dynamic>? fillGeometry,
