@@ -146,10 +146,14 @@ BooleanOperation _$BooleanOperationFromJson(Map<String, dynamic> json) =>
       strokeGeometry: json['strokeGeometry'] as List<dynamic>?,
       strokeAlign:
           _$enumDecodeNullable(_$StrokeAlignEnumMap, json['strokeAlign']),
-      styles: ((json['styles'] as Map<String, dynamic>?)?.map(
-        (k, e) => MapEntry(
-            _$enumDecodeNullable(_$StyleTypeKeyEnumMap, k), e as String),
-      )?..removeWhere((k, v) => k == null)) as Map<StyleTypeKey, String>?,
+      styles: ((json['styles'] as Map<String, dynamic>?)
+          ?.map(
+            (k, e) => MapEntry(
+              _$enumDecodeNullable(_$StyleTypeKeyEnumMap, k),
+              e as String,
+            ),
+          )
+          ?.removeWhere((k, v) => k == null)) as Map<StyleTypeKey, String>?,
     );
 
 Map<String, dynamic> _$BooleanOperationToJson(BooleanOperation instance) =>

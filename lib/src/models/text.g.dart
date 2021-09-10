@@ -159,10 +159,14 @@ Text _$TextFromJson(Map<String, dynamic> json) => Text(
       strokeGeometry: json['strokeGeometry'] as List<dynamic>?,
       strokeAlign:
           _$enumDecodeNullable(_$StrokeAlignEnumMap, json['strokeAlign']),
-      styles: ((json['styles'] as Map<String, dynamic>?)?.map(
-        (k, e) => MapEntry(
-            _$enumDecodeNullable(_$StyleTypeKeyEnumMap, k), e as String),
-      )?..removeWhere((k, v) => k == null)),
+      styles: ((json['styles'] as Map<String, dynamic>?)
+          ?.map(
+            (k, e) => MapEntry(
+              _$enumDecodeNullable(_$StyleTypeKeyEnumMap, k),
+              e as String,
+            ),
+          )
+          ?.removeWhere((k, v) => k == null)) as Map<StyleTypeKey, String>?,
     );
 
 Map<String, dynamic> _$TextToJson(Text instance) => <String, dynamic>{

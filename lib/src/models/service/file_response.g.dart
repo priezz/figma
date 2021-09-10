@@ -51,7 +51,7 @@ FileResponse _$FileResponseFromJson(Map<String, dynamic> json) => FileResponse(
         (k, e) => MapEntry(k, Component.fromJson(e as Map<String, dynamic>)),
       ),
       schemaVersion: json['schemaVersion'] as int?,
-      styles: ((json['styles'] as Map<String, dynamic>?)?.map(
+      styles: (json['styles'] as Map<String, dynamic>?)?.map(
         (k, e) => MapEntry(k, Style.fromJson(e as Map<String, dynamic>)),
       ),
     );
