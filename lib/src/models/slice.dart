@@ -23,7 +23,7 @@ class Slice extends Node {
   /// relative to its parent. The bottom row of the matrix is implicitly always
   /// (0, 0, 1). Use to transform coordinates in geometry. Only present if
   /// geometry=paths is passed
-  final List<List<num>>? relativeTransform;
+  final List<List<num?>>? relativeTransform;
 
   Slice({
     required String id,
