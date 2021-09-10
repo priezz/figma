@@ -137,12 +137,10 @@ Vector _$VectorFromJson(Map<String, dynamic> json) => Vector(
       strokeGeometry: json['strokeGeometry'] as List<dynamic>?,
       strokeAlign:
           _$enumDecodeNullable(_$StrokeAlignEnumMap, json['strokeAlign']),
-      styles: (json['styles'] as Map<String, dynamic>?)
-          ?.map(
-            (k, e) => MapEntry(
-                _$enumDecodeNullable(_$StyleTypeKeyEnumMap, k), e as String),
-          )
-          .removeWhere((k, v) => k == null),
+      styles: (json['styles'] as Map<String, dynamic>?)?.map(
+        (k, e) => MapEntry(
+            _$enumDecodeNullable(_$StyleTypeKeyEnumMap, k), e as String),
+      )?..removeWhere((k, v) => k == null),
     );
 
 Map<String, dynamic> _$VectorToJson(Vector instance) => <String, dynamic>{
